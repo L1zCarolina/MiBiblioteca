@@ -9,8 +9,14 @@ app.use(express.json());
 // lo voy a poder utilizar
 
 const librosRouter = require('./routers/libros.router');
+const usuariosRouter = require('./routers/usuarios.router');
+
+// Middleware para interpretar JSON
+app.use(express.json());
+
 app.use('/libros', librosRouter);
 // Siempre que me refiera a libros le coloco el prefijo
+app.use('/usuarios', usuariosRouter);
 
 app.get("/", (req, res) => {
     res.send("Bienvenido a la Biblioteca Personal");
